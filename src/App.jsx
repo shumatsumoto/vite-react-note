@@ -29,6 +29,8 @@ function App() {
     return notes.find((note) => note.id === activeNote);
   };
 
+  const onUpdateNote = () => {};
+
   return (
     <div className="App">
       <Sidebar

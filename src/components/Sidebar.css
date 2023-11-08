@@ -46,6 +46,10 @@ button {
   background-color: #ffc9cd;
 }
 
+.app-sidebar-note.active {
+  background-color: #ffc9cd;
+}
+
 .sidebar-note-title {
   display: flex;
   justify-content: space-between;

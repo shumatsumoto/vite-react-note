@@ -1,8 +1,14 @@
 import React from "react";
 import "./Main.css";
 
-const Main = ({ activeNote }) => {
-  const onEditNote = () => {};
+const Main = ({ activeNote, onUpdateNote }) => {
+  const onEditNote = (key, value) => {
+    onUpdateNote({
+      ...activeNote,
+      [key]: value,
+      modDate: Date.now(),
+    });
+  };
 
   if (!activeNote) {
     return <div className="no-active-note">ノートが選択されていません。</div>;
@@ -15,13 +21,13 @@ const Main = ({ activeNote }) => {
           id="title"
           type="text"
           value={activeNote.title}
-          onChange={() => onEditNote("title", e.target.value)}
+          onChange={(e) => onEditNote("title", e.target.value)}
         />
         <textarea
           id="content"
           placeholder="ノート内容を記入"
           value={activeNote.content}
-          onChange={() => onEditNote("content", e.target.value)}
+          onChange={(e) => onEditNote("content", e.target.value)}
         ></textarea>
       </div>
       <div className="app-main-note-preview">
